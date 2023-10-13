@@ -4,5 +4,6 @@ namespace SONDA.Repositories;
 
 public interface IUserRepository
 {
-    public Task<List<UserModel>> GetAll();
+    Task<List<UserModel>> GetAll();
+    
 }

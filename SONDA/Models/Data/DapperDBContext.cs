@@ -1,19 +1,22 @@
 using System.Data;
 using MySql.Data.MySqlClient;
+using SONDA.Repositories;
 
 namespace SONDA.Models.Data;
 
-public class DapperDBContext
+public class DapperDBContext 
 {
-    public readonly IConfiguration _configuration;
-    private readonly string connectionString;
+    private readonly IConfiguration _configuration;
+  //  private readonly string connectionString;
+    
 
-    public DapperDBContext(IConfiguration _configuration)
+    public DapperDBContext(IConfiguration configuration)
     {
-        this._configuration = _configuration;
-        this.connectionString = this._configuration.GetConnectionString("MysqlConn");
+        _configuration = configuration;
+       // connectionString = this._configuration.GetConnectionString("MysqlConn");
     }
     /*Dapper Connection interface*/
 
-    public IDbConnection CreateConnection() => new MySqlConnection(connectionString);
+    public IDbConnection CreateConnection() => new MySqlConnection(_configuration.GetConnectionString("MySqlConn"));
+    
 }
