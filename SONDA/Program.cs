@@ -10,6 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddTransient<DapperDBContext>();
 /* user repositoty and interface*/
 builder.Services.AddTransient<IUserRepository, UserRepository>();
+builder.Services.AddTransient<IBranchRespository, BranchRespository>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
